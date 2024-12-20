@@ -1,0 +1,25 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-bottom: 2px solid #ddd;
+
+    tr:nth-child(even) {
+        background-color: #fff;
+    }
+
+    th,
+    td,
+    .mat-mdc-paginator {
+        border: 2px solid #ddd;
+    }
+
+    th,
+    .mat-mdc-paginator {
+        background-color: #f5f5f5;
+        text-align: center;
+    }
+}
+
+.mat-mdc-card {
+    margin: 1rem;
+}

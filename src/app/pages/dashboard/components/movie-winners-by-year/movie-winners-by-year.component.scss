@@ -1,0 +1,17 @@
+.search-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.search-field {
+    flex: 1;
+}
+
+.search-button {
+    margin-top: -20px;
+    height: 56px;
+    width: 56px;
+    text-align: center;
+}
+

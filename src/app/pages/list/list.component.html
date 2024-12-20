@@ -1,0 +1,51 @@
+<div class="mat-elevation-z8 movies">
+    <table mat-table [dataSource]="dataSource" class="mat-table">
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> ID </th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="year">
+        <th mat-header-cell *matHeaderCellDef>
+          <div class="header-container">
+            Year
+            <mat-form-field class="filter-field small-field">
+              <input matInput (keyup)="applyFilter()" [(ngModel)]="filterYear" placeholder="1990">
+            </mat-form-field>
+          </div>
+        </th>
+        <td mat-cell *matCellDef="let element"> {{element.year}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="title">
+        <th mat-header-cell *matHeaderCellDef> Title </th>
+        <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="winner">
+        <th mat-header-cell *matHeaderCellDef>
+          <div class="header-container">
+            Winner
+            <mat-form-field class="filter-field small-field">
+              <mat-select [(ngModel)]="filterWinner" (selectionChange)="applyFilter()">
+                <mat-option value="">All</mat-option>
+                <mat-option value="true">Yes</mat-option>
+                <mat-option value="false">No</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </th>
+        <td mat-cell *matCellDef="let element"> {{element.winner ? 'Yes' : 'No'}} </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  
+    <mat-paginator [length]="totalElements"
+                   [pageSize]="pageSize"
+                   [pageIndex]="pageIndex"
+                   [pageSizeOptions]="[5, 10, 20]"
+                   (page)="onPageChange($event)">
+    </mat-paginator>
+</div>
